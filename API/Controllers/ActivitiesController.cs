@@ -1,20 +1,13 @@
-﻿using Domain;
+﻿using Application.Activities;
+using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
 
 namespace API.Controllers;
 
 public class ActivitiesController : BaseApiController
 {
-  private readonly DataContext _context;
-
-  /* A constructor. */
-  public ActivitiesController(DataContext context)
-  {
-    _context = context;
-  }
-
+  
   /// <summary>
   /// This function returns a list of activities from the database.
   /// </summary>
@@ -24,7 +17,7 @@ public class ActivitiesController : BaseApiController
   [HttpGet]
   public async Task<ActionResult<List<Activity>>> GetActivities()
   {
-    return await _context.Activities.ToListAsync();
+    return await Mediator.Send(new List.Query());
   }
 
   /// <summary>
@@ -39,6 +32,6 @@ public class ActivitiesController : BaseApiController
   [HttpGet("{id}")]
   public async Task<ActionResult<Activity>> GetActivity(Guid id)
   {
-    return await _context.Activities.FindAsync(id);
+    return await Mediator.Send(new Details.Query{Id=id});
   }
 }
