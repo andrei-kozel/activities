@@ -1,9 +1,9 @@
 <template>
-  <div>Home View</div>
+  <div>Navigation</div>
 </template>
 
 <script lang="ts">
 export default {};
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
