@@ -5,14 +5,14 @@
         class="flex items-center justify-between py-6 md:justify-start md:space-x-10"
       >
         <div class="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
+          <router-link to="/">
             <span class="sr-only">Reactivities</span>
             <img
               class="h-8 w-auto sm:h-10"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
             />
-          </a>
+          </router-link>
         </div>
         <div class="-my-2 -mr-2 md:hidden">
           <button
@@ -40,31 +40,27 @@
           </button>
         </div>
         <nav class="hidden space-x-10 md:flex">
-          <a
-            href="#"
+          <router-link
+            to="/"
             class="text-base font-medium text-gray-200 hover:text-gray-400"
-            >Home</a
+            >Home</router-link
           >
-          <a
-            href="#"
+          <router-link
+            to="/dashboard"
             class="text-base font-medium text-gray-200 hover:text-gray-400"
-            >Item 2</a
-          ><a
-            href="#"
-            class="text-base font-medium text-gray-200 hover:text-gray-400"
-            >Item 3</a
+            >Dashboard</router-link
           >
         </nav>
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <a
-            href="#"
+          <router-link
+            to="#"
             class="whitespace-nowrap text-base font-medium text-gray-200 hover:text-gray-300"
-            >Sign in</a
+            >Sign in</router-link
           >
-          <a
-            href="#"
+          <router-link
+            to="#"
             class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-            >Sign up</a
+            >Sign up</router-link
           >
         </div>
       </div>
@@ -115,32 +111,27 @@
         </div>
         <div class="space-y-6 py-6 px-5">
           <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-            <a
-              href="#"
+            <router-link
+              to="/"
               class="text-base font-medium text-gray-200 hover:text-gray-400"
-              >Item 1</a
+              >Home</router-link
             >
-            <a
-              href="#"
+            <router-link
+              to="/dashboard"
               class="text-base font-medium text-gray-200 hover:text-gray-400"
-              >Item 2</a
-            >
-            <a
-              href="#"
-              class="text-base font-medium text-gray-200 hover:text-gray-400"
-              >Item 3</a
+              >Dashboard</router-link
             >
           </div>
           <div>
-            <a
-              href="#"
+            <router-link
+              to="#"
               class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              >Sign up</a
+              >Sign up</router-link
             >
             <p class="mt-6 text-center text-base font-medium text-gray-500">
               Existing customer?
-              <a href="#" class="text-indigo-600 hover:text-indigo-500"
-                >Sign in</a
+              <router-link to="#" class="text-indigo-600 hover:text-indigo-500"
+                >Sign in</router-link
               >
             </p>
           </div>
@@ -151,6 +142,7 @@
 </template>
 
 <script lang="ts">
+import router from "@/router";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -159,6 +151,7 @@ export default defineComponent({
       showMobileMenu: false,
     };
   },
+  components: { router },
 });
 </script>
 
