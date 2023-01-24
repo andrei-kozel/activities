@@ -19,7 +19,7 @@
             type="button"
             class="inline-flex items-center justify-center rounded-md bg-neutral-600 p-2 text-gray-300 hover:bg-neutral-700 hover:text-gray-500 focus:outline-none"
             aria-expanded="false"
-            @click="showMobileMenu = false"
+            @click="openMobileMenu"
           >
             <span class="sr-only">Open menu</span>
             <svg
@@ -67,7 +67,7 @@
     </div>
 
     <div
-      :class="{ hidden: showMobileMenu }"
+      :class="{ hidden: !showMobileMenu }"
       class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
     >
       <div
@@ -86,7 +86,7 @@
               <button
                 type="button"
                 class="inline-flex items-center justify-center rounded-md bg-neutral-600 p-2 text-gray-300 hover:bg-neutral-700 hover:text-gray-500 focus:outline-none"
-                @click="showMobileMenu = true"
+                @click="closeMobileMenu"
               >
                 <span class="sr-only">Close menu</span>
                 <!-- Heroicon name: outline/x-mark -->
@@ -141,22 +141,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import router from "@/router";
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue";
 
-export default defineComponent({
-  data() {
-    return {
-      showMobileMenu: false,
-    };
-  },
-  components: { router },
-});
+const showMobileMenu = ref<boolean>(false);
+
+const openMobileMenu = () => (showMobileMenu.value = true);
+const closeMobileMenu = () => (showMobileMenu.value = false);
 </script>
-
-<style scoped></style>
-
-<style scoped></style>
-
-<style lang="scss" scoped></style>
