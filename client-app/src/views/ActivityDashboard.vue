@@ -4,23 +4,16 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import ActivityList from "@/components/ActivityList.vue";
-import { getActivities } from "@/services/getActivities";
-import type { IActivity } from "@/types/Activity.interface";
-import { defineComponent } from "vue";
+import { onMounted } from "vue";
+import { useActivitiesStore } from "@/stores/activities";
 
-export default defineComponent({
-  data() {
-    return {
-      activities: [] as IActivity[],
-    };
-  },
-  async mounted() {
-    this.activities = await getActivities();
-  },
-  components: { ActivityList },
+const activitiesStore = useActivitiesStore();
+
+onMounted(() => {
+  activitiesStore.FETCH_ACTIVITIES();
 });
-</script>
 
-<style scoped></style>
+const activities = activitiesStore.activities;
+</script>
