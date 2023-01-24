@@ -1,9 +1,3 @@
 <template>
   <div>Home View</div>
 </template>
-
-<script lang="ts">
-export default {};
-</script>
-
-<style scoped></style>
