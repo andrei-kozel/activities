@@ -4,20 +4,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import type { IActivity } from "@/types/Activity.interface";
+<script lang="ts" setup>
 import ActivityItem from "@/components/ActivityItem.vue";
+import { useActivitiesStore } from "@/stores/activities";
+import { onMounted } from "vue";
 
-export default defineComponent({
-  name: "ActivityList",
-  props: {
-    activities: Array<IActivity>,
-  },
-  components: {
-    ActivityItem,
-  },
+const activitiesStore = useActivitiesStore();
+
+onMounted(() => {
+  activitiesStore.FETCH_ACTIVITIES();
 });
-</script>
 
-<style scoped></style>
+const activities = activitiesStore.activities;
+</script>

@@ -12,14 +12,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { IActivity } from "@/types/Activity.interface";
-import { defineComponent, type PropType } from "vue";
+import type { PropType } from "vue";
+import { defineProps } from "vue";
 
-export default defineComponent({
-  props: {
-    activity: Object as PropType<IActivity>,
-  },
+defineProps({
+  activity: Object as PropType<IActivity>,
 });
 </script>
 

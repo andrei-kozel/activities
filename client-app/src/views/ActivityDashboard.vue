@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import ActivityList from "@/components/ActivityList.vue";
-import { getActivities } from "@/services/activitiesApi";
+import { getActivities } from "@/services/getActivities";
 import type { IActivity } from "@/types/Activity.interface";
 import { defineComponent } from "vue";
 
