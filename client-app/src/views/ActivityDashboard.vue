@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import ActivityList from "@/components/ActivityList.vue";
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { useActivitiesStore } from "@/stores/activities";
 
 const activitiesStore = useActivitiesStore();
@@ -15,5 +15,5 @@ onMounted(() => {
   activitiesStore.FETCH_ACTIVITIES();
 });
 
-const activities = activitiesStore.activities;
+const activities = computed(() => activitiesStore.activities);
 </script>

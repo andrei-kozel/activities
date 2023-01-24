@@ -6,9 +6,13 @@
 
 <script lang="ts" setup>
 import ActivityItem from "@/components/ActivityItem.vue";
-import type { IActivity } from "@/types/Activity.interface";
+import { useActivitiesStore } from "@/stores/activities";
+import { onMounted, computed } from "vue";
 
-defineProps({
-  activities: Array<IActivity>,
+const activitiesStore = useActivitiesStore();
+onMounted(() => {
+  activitiesStore.FETCH_ACTIVITIES;
 });
+
+const activities = computed(() => activitiesStore.activities);
 </script>
