@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   @apply w-full h-full;
- 
 }
 
 #app {
-  @apply  h-full w-full text-white;  
-  background-color: #181818;
-  
+  @apply h-full w-full text-white;
 }
