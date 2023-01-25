@@ -1,9 +1,11 @@
 <template>
-  <header>
-    <Navigation />
-  </header>
+  <div class="bg-[#181818]">
+    <header>
+      <Navigation />
+    </header>
 
-  <RouterView />
+    <RouterView class="container mx-auto" />
+  </div>
 </template>
 
 <script lang="ts" setup>
