@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-6">
+  <div>
     <ActivityItem v-for="activity in activities" :activity="activity" />
   </div>
 </template>
