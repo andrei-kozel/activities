@@ -13,11 +13,12 @@ const props = defineProps({
     required: true,
     default: "primary",
     validator(value: string) {
-      return ["primary", "secondary"].includes(value);
+      return ["primary", "secondary", "cancel"].includes(value);
     },
   },
 });
 const { type } = toRefs(props);
+
 const buttonClass = computed(() => {
   return {
     [type.value]: true,
@@ -27,12 +28,15 @@ const buttonClass = computed(() => {
 
 <style scoped>
 button {
-  @apply px-5 py-2 font-medium;
+  @apply px-5 py-2 font-medium transition-all duration-100 ease-in-out;
 }
 .primary {
-  @apply rounded-md bg-blue-600 text-white hover:shadow-md hover:bg-blue-700;
+  @apply bg-transparent border border-green-400 rounded-md text-white hover:bg-green-400 hover:text-neutral-800;
 }
 .secondary {
-  @apply bg-transparent bg-blue-600 hover:bg-blue-700 hover:text-white;
+  @apply bg-transparent  border border-neutral-400 text-white hover:bg-neutral-400 hover:text-neutral-800;
+}
+.cancel {
+  @apply bg-transparent  hover:text-white border border-neutral-400 text-white hover:bg-red-400 hover:border-red-400;
 }
 </style>
