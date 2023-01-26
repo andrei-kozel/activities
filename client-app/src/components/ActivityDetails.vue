@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mt-5 rounded-md overflow-hidden bg-neutral-600">
+  <cards-container styles="p-0 overflow-hidden">
     <div class="max-h-[200px] overflow-hidden">
       <img
         class=""
@@ -12,17 +12,22 @@
       <p>{{ activity?.description }}</p>
     </div>
     <div class="flex">
-      <action-button type="secondary" text="Edit" class="w-full" />
-      <action-button type="secondary" text="Cancel" class="w-full" />
+      <action-button
+        type="secondary"
+        text="Edit"
+        class="w-full rounded-bl-md"
+      />
+      <action-button type="cancel" text="Cancel" class="w-full rounded-br-md" />
     </div>
-  </div>
+  </cards-container>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import { useActivitiesStore } from "@/stores/activities";
 
-import ActionButton from "./ActionButton.vue";
+import ActionButton from "@/components/shared/ActionButton.vue";
+import CardsContainer from "@/components/shared/CardsContainer.vue";
 
 const activityStore = useActivitiesStore();
 const activity = computed(() => activityStore.activeActivity);
