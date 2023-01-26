@@ -1,5 +1,5 @@
 <template>
-  <cards-container styles="p-0 overflow-hidden">
+  <cards-container styles="p-[0px] overflow-hidden">
     <div class="max-h-[200px] overflow-hidden">
       <img
         class=""
