@@ -3,8 +3,9 @@
     <div class="col-span-7">
       <activity-list :activities="activities" />
     </div>
-    <div class="col-start-9 col-span-5">
+    <div class="col-start-8 col-span-5">
       <activity-details />
+      <activity-form />
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@ import { useActivitiesStore } from "@/stores/activities";
 
 import ActivityList from "@/components/ActivityList.vue";
 import ActivityDetails from "@/components/ActivityDetails.vue";
+import ActivityForm from "@/components/ActivityForm.vue";
 
 const activitiesStore = useActivitiesStore();
 
