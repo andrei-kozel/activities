@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-neutral-800">
+  <div class="relative bg-background-500">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div
         class="flex items-center justify-between py-6 md:justify-start md:space-x-10"
