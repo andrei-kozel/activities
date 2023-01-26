@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#181818]">
+  <div class="bg-background-600">
     <header>
       <Navigation />
     </header>
