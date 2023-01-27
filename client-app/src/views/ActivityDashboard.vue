@@ -4,7 +4,7 @@
       <activity-list :activities="activities" />
     </div>
     <div class="col-start-8 col-span-5">
-      <activity-details v-if="!edit" @openEditForm="openEditForm" />
+      <activity-details v-if="!isFormOpen" @openEditForm="openEditForm" />
       <activity-form v-else @closeEditForm="closeEditForm" />
     </div>
   </div>
@@ -18,12 +18,12 @@ import ActivityList from "@/components/ActivityList.vue";
 import ActivityDetails from "@/components/ActivityDetails.vue";
 import ActivityForm from "@/components/ActivityForm.vue";
 
-const edit = ref<boolean>(false);
+const isFormOpen = ref<boolean>(false);
 const openEditForm = () => {
-  edit.value = true;
+  isFormOpen.value = true;
 };
 const closeEditForm = () => {
-  edit.value = false;
+  isFormOpen.value = false;
 };
 
 const activitiesStore = useActivitiesStore();
