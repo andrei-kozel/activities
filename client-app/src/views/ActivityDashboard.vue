@@ -19,18 +19,12 @@ import ActivityDetails from "@/components/ActivityDetails.vue";
 import ActivityForm from "@/components/ActivityForm.vue";
 
 const isFormOpen = ref<boolean>(false);
-const openEditForm = () => {
-  isFormOpen.value = true;
-};
-const closeEditForm = () => {
-  isFormOpen.value = false;
-};
+const openEditForm = () => (isFormOpen.value = true);
+const closeEditForm = () => (isFormOpen.value = false);
 
 const activitiesStore = useActivitiesStore();
-
 onMounted(() => {
   activitiesStore.FETCH_ACTIVITIES();
 });
-
 const activities = computed(() => activitiesStore.activities);
 </script>
