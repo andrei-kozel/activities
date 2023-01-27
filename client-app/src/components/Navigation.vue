@@ -40,6 +40,7 @@
           >
         </nav>
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+          <action-button text="Create activity" type="primary" class="mr-8" />
           <router-link
             to="#"
             class="whitespace-nowrap text-base font-medium text-gray-200 hover:text-gray-300"
@@ -131,6 +132,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+
+import ActionButton from "@/components/shared/ActionButton.vue";
 
 const showMobileMenu = ref<boolean>(false);
 
