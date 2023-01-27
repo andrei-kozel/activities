@@ -1,9 +1,7 @@
 <template>
   <div class="relative bg-background-500">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div
-        class="flex items-center justify-between py-6 md:justify-start md:space-x-10"
-      >
+    <div class="mx-auto max-w-7xl">
+      <div class="flex items-center justify-between py-6 md:justify-start">
         <div class="-my-2 -mr-2 md:hidden">
           <button
             type="button"
