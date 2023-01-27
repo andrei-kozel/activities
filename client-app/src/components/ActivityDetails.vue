@@ -16,6 +16,7 @@
         type="secondary"
         text="Edit"
         class="w-full rounded-bl-md"
+        @click="$emit('openEditForm')"
       />
       <action-button type="cancel" text="Cancel" class="w-full rounded-br-md" />
     </div>
