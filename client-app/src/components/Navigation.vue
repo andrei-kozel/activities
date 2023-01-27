@@ -1,6 +1,6 @@
 <template>
   <div class="relative bg-background-500">
-    <div class="mx-auto max-w-7xl">
+    <div class="mx-auto container px-2">
       <div class="flex items-center justify-between py-6 md:justify-start">
         <div class="-my-2 -mr-2 md:hidden">
           <button
