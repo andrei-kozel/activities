@@ -8,8 +8,13 @@
       <form-input placeholder="Venue" :value="activity?.venue" />
       <form-input placeholder="Category" :value="activity?.category" />
       <div class="flex justify-end space-x-3 mt-4">
-        <action-button type="primary" text="Save" />
-        <action-button type="cancel" text="Cancel" class="rounded-md" />
+        <action-button type="primary" text="Save" @click.prevent="" />
+        <action-button
+          type="cancel"
+          text="Cancel"
+          class="rounded-md"
+          @click.prevent="$emit('closeEditForm')"
+        />
       </div>
     </form>
   </cards-container>
