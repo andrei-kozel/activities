@@ -40,7 +40,12 @@
           >
         </nav>
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <action-button text="Create activity" type="primary" class="mr-8" />
+          <action-button
+            text="Create activity"
+            type="primary"
+            class="mr-8"
+            @click="handleClick"
+          />
           <router-link
             to="#"
             class="whitespace-nowrap text-base font-medium text-gray-200 hover:text-gray-300"
@@ -132,11 +137,16 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useState } from "@/stores/state";
 
 import ActionButton from "@/components/shared/ActionButton.vue";
 
 const showMobileMenu = ref<boolean>(false);
-
 const openMobileMenu = () => (showMobileMenu.value = true);
 const closeMobileMenu = () => (showMobileMenu.value = false);
+
+const state = useState();
+const handleClick = () => {
+  state.EDIT_MODE_ON();
+};
 </script>
