@@ -2,7 +2,7 @@
   <div>
     <input
       :placeholder="placeholder"
-      :value="value"
+      :value="modelValue"
       class="w-full p-1 rounded-sm bg-neutral-300 text-neutral-800 my-2"
     />
   </div>
