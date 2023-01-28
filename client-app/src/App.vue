@@ -1,14 +1,13 @@
 <template>
   <div class="bg-background-600">
     <header>
-      <Navigation />
+      <navigation />
     </header>
-
-    <RouterView class="container mx-auto" />
+    <activity-dashboard />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { RouterView } from "vue-router";
-import Navigation from "./components/Navigation.vue";
+import Navigation from "@/components/Navigation.vue";
+import ActivityDashboard from "@/views/ActivityDashboard.vue";
 </script>
