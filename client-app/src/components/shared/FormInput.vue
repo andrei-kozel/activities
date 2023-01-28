@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 defineProps({
   placeholder: { type: String, required: true },
-  value: { type: String, required: false, default: "" },
+  modelValue: { type: String, required: false, default: "" },
 });
 </script>
 
