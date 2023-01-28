@@ -23,6 +23,7 @@ import type { IActivity } from "@/types/Activity.interface";
 import type { PropType } from "vue";
 import { defineProps } from "vue";
 import { useActivitiesStore } from "@/stores/activities";
+import { useState } from "@/stores/state";
 
 import ActionButton from "@/components/shared/ActionButton.vue";
 import Badge from "./shared/Badge.vue";
@@ -32,8 +33,11 @@ defineProps({
 });
 
 const activityStore = useActivitiesStore();
+const state = useState();
+
 const setActiveActivity = (activity: IActivity) => {
-  activityStore.SET_ACTIVE_ACTIVITY(activity);
+  state.EDIT_MODE_OFF();
+  activityStore.SET_ACTIVE_ACTIVITY(activity.id);
 };
 </script>
 
