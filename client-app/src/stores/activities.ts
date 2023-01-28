@@ -1,7 +1,10 @@
+import type { IActivity } from "@/types/Activity.interface";
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import type { IActivity } from "@/types/Activity.interface";
 import { getActivities } from "@/services/getActivities";
+import { createActivity } from "@/services/createActivity";
+import { useState } from "./state";
+import { updateActivity } from "@/services/updateActivity";
 
 export const useActivitiesStore = defineStore("activities", () => {
   const activities = ref<IActivity[]>([]);
@@ -24,12 +27,25 @@ export const useActivitiesStore = defineStore("activities", () => {
   const FETCH_ACTIVITIES = async () => {
     const result = await getActivities();
     activities.value = result;
-    SET_ACTIVE_ACTIVITY(activities.value[0]);
   };
 
-  const SET_ACTIVE_ACTIVITY = (activity: IActivity) => {
-    activeActivity.value = activity;
+  const SET_ACTIVE_ACTIVITY = (id: string) => {
+    activeActivity.value = activities.value.find(
+      (activity) => activity.id === id
+    )!;
   };
 
-  return { activities, activeActivity, FETCH_ACTIVITIES, SET_ACTIVE_ACTIVITY };
+  const CLEAR_ACTIVE_ACTIVITY = () => {
+    activeActivity.value = null;
+  };
+
+  return {
+    activities,
+    activeActivity,
+    FETCH_ACTIVITIES,
+    SET_ACTIVE_ACTIVITY,
+    CLEAR_ACTIVE_ACTIVITY,
+    CREATE_ACTIVITY,
+    UPDATE_ACTIVITY,
+  };
 });
