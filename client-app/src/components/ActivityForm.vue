@@ -31,18 +31,23 @@ import FormInput from "@/components/shared/FormInput.vue";
 import ActionButton from "@/components/shared/ActionButton.vue";
 import CardsContainer from "@/components/shared/CardsContainer.vue";
 
-const activity = ref<IActivity>({
-  category: "",
-  city: "",
-  date: "",
-  description: "",
-  id: "",
-  title: "",
-  venue: "",
-});
-
 const activityStore = useActivitiesStore();
 const activeActivity = computed(() => activityStore.activeActivity);
+
+const initialState = computed(
+  () =>
+    activeActivity.value ?? {
+      category: "",
+      city: "",
+      date: "",
+      description: "",
+      id: "",
+      title: "",
+      venue: "",
+    }
+);
+
+const activity = ref<IActivity>(initialState.value);
 
 onUpdated(() => {
   if (activeActivity.value) {
