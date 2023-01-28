@@ -1,5 +1,5 @@
 <template>
-  <cards-container styles="p-0 overflow-hidden">
+  <cards-container styles="p-0 overflow-hidden" v-if="showDetails">
     <div class="max-h-[200px] overflow-hidden">
       <img
         class=""
@@ -7,18 +7,23 @@
       />
     </div>
     <div class="p-2 mb-3">
-      <p class="text-xl">{{ activity?.title }}</p>
-      <p class="text-xs text-gray-400">{{ activity?.date }}</p>
-      <p>{{ activity?.description }}</p>
+      <p class="text-xl">{{ activity!.title }}</p>
+      <p class="text-xs text-gray-400">{{ activity!.date }}</p>
+      <p>{{ activity!.description }}</p>
     </div>
     <div class="flex">
       <action-button
         type="secondary"
         text="Edit"
         class="w-full rounded-bl-md"
-        @click="$emit('openEditForm')"
+        @click="handleEditOpen(activity!.id)"
       />
-      <action-button type="cancel" text="Cancel" class="w-full rounded-br-md" />
+      <action-button
+        type="cancel"
+        text="Cancel"
+        class="w-full rounded-br-md"
+        @click="closeDetails"
+      />
     </div>
   </cards-container>
 </template>
@@ -26,12 +31,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useActivitiesStore } from "@/stores/activities";
+import { useState } from "@/stores/state";
 
 import ActionButton from "@/components/shared/ActionButton.vue";
 import CardsContainer from "@/components/shared/CardsContainer.vue";
 
 const activityStore = useActivitiesStore();
 const activity = computed(() => activityStore.activeActivity);
-</script>
+const closeDetails = () => activityStore.CLEAR_ACTIVE_ACTIVITY();
 
-<style scoped></style>
+const state = useState();
+const showDetails = computed(() => !state.editMode && activity.value);
+const handleEditOpen = (id: string) => {
+  state.EDIT_MODE_ON(id);
+};
+</script>
