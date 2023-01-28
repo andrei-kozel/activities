@@ -15,5 +15,3 @@ defineProps({
   modelValue: { type: String, required: false, default: "" },
 });
 </script>
-
-<style scoped></style>
