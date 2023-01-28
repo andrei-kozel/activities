@@ -5,7 +5,21 @@ import { getActivities } from "@/services/getActivities";
 
 export const useActivitiesStore = defineStore("activities", () => {
   const activities = ref<IActivity[]>([]);
-  const activeActivity = ref<IActivity>();
+  const activeActivity = ref<IActivity | null>(null);
+
+  const CREATE_ACTIVITY = async (activity: IActivity) => {
+    const state = useState();
+    state.EDIT_MODE_ON();
+    await createActivity(activity);
+    state.EDIT_MODE_OFF();
+  };
+
+  const UPDATE_ACTIVITY = async (activity: Partial<IActivity>, id: string) => {
+    const state = useState();
+    state.EDIT_MODE_ON();
+    await updateActivity(activity, id);
+    state.EDIT_MODE_OFF();
+  };
 
   const FETCH_ACTIVITIES = async () => {
     const result = await getActivities();
