@@ -6,6 +6,8 @@ export const useState = defineStore("state", () => {
   const editMode = ref(false);
 
   const EDIT_MODE_ON = (id?: string) => {
+    // fix for bug where edit mode is not turned off when creating new activity
+    EDIT_MODE_OFF();
     editMode.value = true;
     const activityStore = useActivitiesStore();
 
