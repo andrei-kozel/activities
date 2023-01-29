@@ -5,6 +5,7 @@ import { getActivities } from "@/services/getActivities";
 import { createActivity } from "@/services/createActivity";
 import { useState } from "./state";
 import { updateActivity } from "@/services/updateActivity";
+import { deleteActivity } from "@/services/deleteActivity";
 
 export const useActivitiesStore = defineStore("activities", () => {
   const activities = ref<IActivity[]>([]);
@@ -40,6 +41,13 @@ export const useActivitiesStore = defineStore("activities", () => {
     activeActivity.value = null;
   };
 
+  const DELETE_ACTIVITY = async (id: string) => {
+    await deleteActivity(id);
+    activities.value = activities.value.filter(
+      (activity) => activity.id !== id
+    );
+  };
+
   return {
     activities,
     activeActivity,
@@ -48,5 +56,6 @@ export const useActivitiesStore = defineStore("activities", () => {
     CLEAR_ACTIVE_ACTIVITY,
     CREATE_ACTIVITY,
     UPDATE_ACTIVITY,
+    DELETE_ACTIVITY,
   };
 });
