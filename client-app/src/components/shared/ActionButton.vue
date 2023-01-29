@@ -39,4 +39,8 @@ button {
 .cancel {
   @apply bg-transparent  hover:text-white border border-neutral-400 text-white hover:bg-red-400 hover:border-red-400;
 }
+
+.warning {
+  @apply bg-transparent  hover:text-white border border-red-400 text-red-400 hover:bg-red-400 hover:border-red-400 rounded-md;
+}
 </style>
