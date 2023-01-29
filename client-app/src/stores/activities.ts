@@ -14,6 +14,7 @@ export const useActivitiesStore = defineStore("activities", () => {
     const state = useState();
     state.EDIT_MODE_ON();
     await createActivity(activity);
+    activities.value.push(activity);
     state.EDIT_MODE_OFF();
   };
 
