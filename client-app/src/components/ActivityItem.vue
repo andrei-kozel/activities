@@ -9,11 +9,18 @@
     <p>{{ activity!.city }}, {{ activity?.venue }}</p>
     <div class="flex mt-2 justify-between items-center">
       <badge :text="activity!.category" />
-      <action-button
-        type="primary"
-        text="View"
-        @click="setActiveActivity(activity!)"
-      />
+      <div class="flex flex-row space-x-4">
+        <action-button
+          type="warning"
+          text="Delete"
+          @click="deleteActivity(activity!.id)"
+        />
+        <action-button
+          type="primary"
+          text="View"
+          @click="setActiveActivity(activity!)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +45,10 @@ const state = useState();
 const setActiveActivity = (activity: IActivity) => {
   state.EDIT_MODE_OFF();
   activityStore.SET_ACTIVE_ACTIVITY(activity.id);
+};
+
+const deleteActivity = (id: string) => {
+  activityStore.DELETE_ACTIVITY(id);
 };
 </script>
 
